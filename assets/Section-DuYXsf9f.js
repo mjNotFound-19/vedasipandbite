@@ -1,1 +1,0 @@
-import{j as o,c as t}from"./index-j2XNaF5N.js";const c=({className:s,children:a})=>o.jsx("div",{className:t("mx-auto w-full max-w-6xl px-6 md:px-10",s),children:a}),n=({className:s,children:a,id:x})=>o.jsx("section",{id:x,className:t("py-18 md:py-22",s),children:a});export{c as C,n as S};
