@@ -1,0 +1,139 @@
+@import './styles/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+    background-image: radial-gradient(120% 90% at 20% 20%, rgba(155, 170, 138, 0.16), transparent 55%),
+      radial-gradient(120% 120% at 80% 0%, rgba(183, 139, 62, 0.08), transparent 50%),
+      linear-gradient(180deg, #f7f2ea 0%, #efe6d8 60%, #f7f2ea 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-charcoal;
+  }
+
+  p {
+    @apply leading-body;
+  }
+
+  a {
+    @apply transition-colors duration-250 ease-luxe;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b78b3e;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at top, rgba(199, 211, 188, 0.7), rgba(247, 242, 234, 0.2)),
+      linear-gradient(180deg, rgba(247, 242, 234, 1) 0%, rgba(239, 230, 216, 1) 65%, rgba(247, 242, 234, 1) 100%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .card-surface {
+    @apply bg-parchment border border-cream-dark shadow-soft;
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(14px);
+    background: rgba(251, 247, 240, 0.92);
+    box-shadow: 0 22px 60px -40px rgba(16, 24, 16, 0.4);
+  }
+
+  .sheen-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out, transform 400ms ease;
+    transform: translate3d(-10%, 0, 0);
+    pointer-events: none;
+  }
+
+  .sheen-overlay:hover::before {
+    opacity: 0.9;
+    transform: translate3d(10%, 0, 0);
+  }
+
+  .sheen-overlay:active::before {
+    opacity: 0.5;
+  }
+
+  .edge-fade {
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes leaf-fall {
+    0% {
+      transform: translate3d(var(--leaf-x, 0), -120px, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(var(--leaf-x, 0), 110vh, 0) rotate(160deg);
+      opacity: 0;
+    }
+  }
+
+  .leaf {
+    position: absolute;
+    top: -40px;
+    width: 28px;
+    height: 28px;
+    color: #1e3a2f;
+    opacity: 0;
+    animation-name: leaf-fall;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    will-change: transform;
+  }
+}
