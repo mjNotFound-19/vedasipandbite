@@ -1,0 +1,1 @@
+import{j as s,c as r}from"./index-j2XNaF5N.js";const c={default:"bg-herb text-cream",muted:"bg-cream-dark text-herb",accent:"bg-gold text-cream"},x=({children:e,variant:t="default",className:a})=>s.jsx("span",{className:r("inline-flex items-center rounded-pill px-3 py-1 text-xs font-semibold uppercase tracking-wide",c[t],a),children:e});export{x as B};
